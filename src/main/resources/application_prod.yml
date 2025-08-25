@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+build:
+  version: "1.0"
+
+accounts:
+  message: "Welcome to accounts microservive related PRODAPIs "
+  contactDetails:
+    name: "Jack Doe - Business REpresentative"
+    email: "jack@nowhere.com"
+  onCallSupport:
+    - (801) 888-2345
+    - (801) 888-3498

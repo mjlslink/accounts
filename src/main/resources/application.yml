@@ -16,3 +16,21 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  config:
+    import:
+      - "application_qa.yml"
+      - "application_prod.yml"
+  profiles:
+    active:
+      - "prod"
+build:
+  version: "3.0"
+
+accounts:
+  message: "Welcome to accounts microservive related DEV APIs "
+  contactDetails:
+    name: "John Doe - Developer"
+    email: "john@nowhere.com"
+  onCallSupport:
+    - (801) 555-1234
+    - (801) 523-1345
