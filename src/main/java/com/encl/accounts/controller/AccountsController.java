@@ -25,7 +25,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @Tag(
-        name = "Crud REST APIs for Accounts in EazyBank",
+        name = "Crud REST APIs for Accounts",
         description = "CRUD REST APIs for CREATE< READ, UPDATE and DELETE account details"
 )
 @RestController
