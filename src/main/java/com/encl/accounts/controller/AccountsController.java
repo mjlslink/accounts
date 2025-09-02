@@ -192,7 +192,6 @@ public class AccountsController {
             )
     }
     )
-
     @GetMapping("/build-info")
     public ResponseEntity<String> getBuidInfo() {
         return ResponseEntity.status(HttpStatus.OK).body("Build Version: " + buildVersion);
