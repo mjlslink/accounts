@@ -45,3 +45,8 @@ Docker
     docker exec -it <container> /bin/bash - will open a bash shell in a running container
     docker compose up
     docker compose down
+
+FOr Mysql Database
+
+docker run -p 3306:3306 --name accountsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=accountsdb -d mysql
+docker run -p 3307:3306 --name loansdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=loansdb -d mysql
