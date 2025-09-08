@@ -1,5 +1,27 @@
-Docker 
+implementation 'io.github.resilience4j:resilience4j-spring-boot3:2.2.0'
 
+Deploymnet on Kubernetes
+
+1. Create a namespace
+   kubectl create namespace bankapp
+2. Create a secret for mysql password
+   kubectl create secret generic mysql-pass --from-literal=password=root -n bankapp
+3. Create a configmap for application properties
+   kubectl create configmap bankapp-config --from-file=./k8s/config -n bankapp
+4. Apply the deployments and services
+   kubectl apply -f ./k8s/mysql -n bankapp
+   kubectl apply -f ./k8s/configserver -n bankapp
+   kubectl apply -f ./k8s/accounts -n bankapp
+   kubectl apply -f ./k8s/loans -n bankapp
+   kubectl apply -f ./k8s/cards -n bankapp
+5. Verify the deployments and services
+   kubectl get all -n bankapp
+6. Access the services
+   http://<node-ip>:<node-port>/accounts
+   http://<node-ip>:<node-port>/loans
+   http://<node-ip>:<node-port>/cards
+
+Reference:
   docker compose up - will create the containers if they don't exist
   docker compose start - will start existing containers
   docker compose stop - will stop running containers
@@ -48,5 +70,3 @@ Docker
 
 FOr Mysql Database
 
-docker run -p 3306:3306 --name accountsdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=accountsdb -d mysql
-docker run -p 3307:3306 --name loansdb -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=loansdb -d mysql

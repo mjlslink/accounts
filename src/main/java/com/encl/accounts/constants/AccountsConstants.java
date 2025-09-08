@@ -2,6 +2,9 @@ package com.encl.accounts.constants;
 
 public final class AccountsConstants {
 
+    public static final String STATUS_408 = "408";
+    public static final String MESSAGE_408 = "Request Timeout. Please try again";
+
     private AccountsConstants() {
         // restrict instantiation
     }
