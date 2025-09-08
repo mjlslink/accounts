@@ -7,6 +7,8 @@ import com.encl.accounts.dto.CustomerDTO;
 import com.encl.accounts.dto.ErrorResponseDTO;
 import com.encl.accounts.dto.ResponseDTO;
 import com.encl.accounts.service.IAccountsService;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -65,7 +67,10 @@ public class AccountsController {
                     )
             )
     })
+    //TODO: configure this
     @PostMapping("/create")
+   // @RateLimiter(name = "default")
+   // @CircuitBreaker(name = "default", fallbackMethod = "fallbackFetchAccount")
     public ResponseEntity<ResponseDTO> createAccount(@Valid @RequestBody CustomerDTO customerDto) {
         accountsService.createAccount(customerDto);
 
@@ -73,6 +78,13 @@ public class AccountsController {
                 .status(HttpStatus.CREATED)
                 .body(new ResponseDTO(AccountsConstants.STATUS_201, AccountsConstants.MESSAGE_201));
     }
+
+    public ResponseEntity<ResponseDTO> fallbackFetchAccount(Exception exception) {
+        return ResponseEntity
+                .status(HttpStatus.REQUEST_TIMEOUT)
+                .body(new ResponseDTO(AccountsConstants.STATUS_408, AccountsConstants.MESSAGE_408));
+    }
+
 
     @Operation(
             summary = "Fetch Account Details REST API",

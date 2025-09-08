@@ -86,6 +86,11 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-spring-boot3</artifactId>
+            <version>2.2.0</version>
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -116,7 +121,7 @@
                         <image>openjdk:21-jdk-slim</image>
                     </from>
                     <to>
-                        <image>mjlslink5/accounts:s6</image>
+                        <image>mjlslink5/accounts:s7</image>
                     </to>
                     <container>
                         <mainClass>com.encl.accounts.AccountsTApplication</mainClass>
