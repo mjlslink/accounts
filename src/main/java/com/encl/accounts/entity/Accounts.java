@@ -22,5 +22,4 @@ public class Accounts extends  BaseEntity {
 
     @Column(name = "communication_sw")
     private Boolean communicationSw;
-
 }

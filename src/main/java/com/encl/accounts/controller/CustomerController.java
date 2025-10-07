@@ -28,7 +28,6 @@ import org.springframework.web.bind.annotation.*;
 public class CustomerController {
 
     private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
-
     private final ICustomersService iCustomersService;
 
     public CustomerController(ICustomersService iCustomersService){
@@ -63,7 +62,6 @@ public class CustomerController {
         CustomerDetailsDto customerDetailsDto = iCustomersService.fetchCustomerDetails(mobileNumber, correlationId);
         logger.debug("fetchCustomerDetails method end");
         return ResponseEntity.status(HttpStatus.SC_OK).body(customerDetailsDto);
-
     }
 
 
