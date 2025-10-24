@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name="loans",fallback = LoansFallback.class)
+//for serverside discvoery we ned to mention the url
+@FeignClient(name="loans", url= "http://loans:8090", fallback = LoansFallback.class)
 public interface LoansFeignClient {
 
     @GetMapping(value = "/api/fetch",consumes = "application/json")

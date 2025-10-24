@@ -21,6 +21,9 @@ spring:
   config:
     import: "optional:configserver:http://localhost:8071/"
   cloud:
+    kubernetes:
+      discovery:
+        all-namespaces: true
     openfeign:
       circuitbreaker:
         enabled: true
@@ -37,7 +40,6 @@ spring:
         binder:
           brokers: localhost:9092
           autoCreateTopics: true
-
 #  rabbitmq:
 #    host: localhost
 #    port: 5672
@@ -67,14 +69,15 @@ management:
     tags:
       application: ${spring.application.name}
 
-eureka:
-  instance:
-    preferIpAddress: true
-  client:
-    fetchRegistry: true
-    registerWithEureka: true
-    serviceUrl:
-      defaultZone: http://localhost:8070/eureka/
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#  client:
+#    fetchRegistry: true
+#    registerWithEureka: true
+#    serviceUrl:
+#      defaultZone: http://localhost:8070/eureka/
+
 
 info:
   app:

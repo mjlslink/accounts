@@ -1,9 +1,13 @@
+com\encl\accounts\service\client\LoansFallback.class
+com\encl\accounts\dto\AccountsMsgDto.class
 com\encl\accounts\exception\CustomerAlreadyExistsException.class
+com\encl\accounts\service\client\CardsFallback.class
 com\encl\accounts\mapper\CustomerMapper.class
 com\encl\accounts\AccountsApplication.class
 com\encl\accounts\constants\AccountsConstants.class
 com\encl\accounts\dto\CustomerDto.class
 com\encl\accounts\dto\ErrorResponseDto.class
+com\encl\accounts\functions\AccountsFunctions.class
 com\encl\accounts\mapper\AccountsMapper.class
 com\encl\accounts\controller\CustomerController.class
 com\encl\accounts\dto\CardsDto.class
